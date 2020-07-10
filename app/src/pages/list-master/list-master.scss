@@ -1,0 +1,58 @@
+// .toolbar-title-md {
+//     padding: 0 12px;
+//     font-size: 2rem;
+//     font-weight: 500;
+//     color: #488aff !important;
+//   }
+// este si va
+
+
+ion-title.large-title {
+    color: purple !important ;
+    font-size: 30px;
+  }
+
+
+  h2::first-letter{
+    text-transform: capitalize;   
+  }
+
+
+  img{
+    width:100%;
+    height:100%;
+  }
+  
+  .myCard{
+    position:relative;
+  
+  }
+  
+  .myOverlay{
+      width: 100%;
+      height: 60px;
+      position: absolute;
+      z-index: 99;
+      bottom: 0px;
+      opacity: 0.75;
+      background: #fff;
+      color: #302F2F;
+      font-size: 20px;
+      text-align: center;
+    
+  
+  }
+
+
+
+  // width: 100%;
+  //   height: 60px;
+  //   position: absolute;
+  //   z-index: 50;
+  //   bottom: 1px;
+  //   opacity: 0.75;
+  //   background: #fff;
+  //   color: #302F2F;
+  //   font-size: 18px;
+  //   font-size: 18;
+  //   text-align: center;

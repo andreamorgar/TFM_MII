@@ -1,0 +1,58 @@
+<!--
+  Generated template for the ListRecipesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{tag.name}}</ion-title>
+    
+   
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-row>
+    <img class="altura" [src]="tag.image">
+
+  </ion-row>
+
+
+
+<!--    
+  <ion-row padding>
+    <p padding class="color" >Breakfast recipes and brunch dishes easy to make! You can take ideas to your best...</p>
+
+  </ion-row>
+ 
+   -->
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of currentItems">
+
+      <button ion-item (click)="openItem(item)" >
+        <ion-icon name="ios-arrow-forward" item-end color="primary"></ion-icon>
+        <ion-avatar size="small" item-start>
+          <img [src]="item.image" />
+        </ion-avatar>
+        <!-- <ion-thumbnail size="small" item-start>
+          <img [src]="item.image" />
+        </ion-thumbnail> -->
+        <h2 class="capitalize">{{item.name}}</h2>
+        <p>from food.com</p>
+        <!-- <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note> -->
+      </button>
+
+      
+      <!-- <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+          {{ 'DELETE_BUTTON' | translate }}
+        </button>
+      </ion-item-options> -->
+    </ion-item-sliding><!-- quitado el ion-item-slidding -->
+
+    
+
+  </ion-list>
+
+</ion-content>

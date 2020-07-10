@@ -1,0 +1,115 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-left>{{adaptedRecipe.name}}</ion-title>
+    <ion-buttons end> <button ion-button icon-only  (click)="save()"> <ion-icon size="large" name="bookmark"></ion-icon> </button> </ion-buttons> 
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="showScore()">
+        <ion-icon name="trophy"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + adaptedRecipe.image + ')'">
+  </div>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+        <ion-icon name='time'></ion-icon>
+        {{adaptedRecipe.minutes}} min
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+        <ion-icon name='analytics'></ion-icon>
+        {{calories}} KCAL
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+        <ion-icon name='information-circle'></ion-icon>
+        ADAPTED RECIPE
+      </button>
+
+    </ion-col>
+  </ion-row>
+
+
+  <ion-list no-lines padding>
+    <ion-row>
+      <ion-title>&emsp;
+        <ion-icon name="nutrition" end></ion-icon>&emsp;Ingredients
+      </ion-title>
+
+      <button ion-button color="primary" clear icon-end>
+        {{adaptMode}}<ion-icon name="checkmark-circle"></ion-icon></button>
+
+      <!-- <ion-title text-right text-uppercase color="primary">
+        {{adaptMode}}&emsp;
+      </ion-title> -->
+    </ion-row>
+
+    <ion-item text-wrap>
+      <li *ngFor="let ingredient of adaptedIngredients">
+        <p padding class="my-label color-mod" *ngIf="ingredient.modified === 'yes' ; else templateName">
+          <ion-icon name="checkmark"></ion-icon>&emsp;
+          {{ingredient.adapted}}&emsp;
+          <del>{{ingredient.name}}</del> 
+          <!-- <ion-icon name="arrow-round-forward"></ion-icon>&emsp;
+          {{ingredient.adapted}} -->
+
+        </p>
+
+        <ng-template #templateName>
+          <p padding class="my-label color">
+            <ion-icon name="checkmark"></ion-icon>&emsp;
+            {{ingredient.name}}
+          </p>
+        </ng-template>
+
+      </li>
+
+    </ion-item>
+  </ion-list>
+
+  <ion-list no-lines padding>
+    <ion-title>&emsp;<ion-icon name="construct" end></ion-icon>&emsp;Preparation steps</ion-title>
+
+    <ion-item text-wrap>
+      <li *ngFor="let st of adaptedSteps">
+        <p padding class="my-label color-mod" *ngIf="st.modified === 'yes' ; else templateName">
+          <ion-icon name="alert"></ion-icon>&emsp;
+          {{st.step}}
+
+        </p>
+
+        <ng-template #templateName>
+          <p padding class="my-label color">
+            {{st.step}}
+          </p>
+        </ng-template>
+
+      </li>
+    </ion-item>
+    <!-- <ion-item text-wrap>
+      <p padding class="my-label preparation-color" *ngFor="let st of adaptedSteps">{{st.step}}</p>
+
+    </ion-item> -->
+  </ion-list>
+
+  <ion-list padding>
+    <ion-title>&emsp;<ion-icon name="chatbubbles" end></ion-icon>&emsp;Comments from the cooker</ion-title>
+
+    <ion-item no-lines text-wrap>
+      <p padding class="my-label color comment-color oblique">"{{adaptedRecipe.description}}"</p>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

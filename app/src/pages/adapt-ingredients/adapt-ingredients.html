@@ -1,0 +1,181 @@
+<!--
+  Generated template for the AdaptIngredientsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{item.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.image + ')'">
+  </div>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+        <ion-icon name='walk'></ion-icon>
+       ADAPTATION
+      </button>
+    </ion-col>
+
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+        <ion-icon name='information-circle'></ion-icon>
+        {{adaptMode}} RESTRICTION
+      </button>
+
+    </ion-col>
+  </ion-row>
+
+
+  <!-- <ion-title>
+    We are almost done
+  </ion-title> -->
+
+
+  <ion-list no-lines padding>
+    <ion-row>
+      <ion-title>&emsp;
+        <ion-icon name="stats" end></ion-icon>&emsp;Recipe ingredients
+      </ion-title>
+
+
+      <!-- <button ion-button color="primary" clear icon-end>
+        {{adaptMode}}<ion-icon name="checkmark-circle"></ion-icon></button> -->
+
+      <!-- <ion-title text-right text-uppercase color="primary">
+        {{adaptMode}}&emsp;
+      </ion-title> -->
+    </ion-row>
+
+    <ion-item text-wrap>
+      <li *ngFor="let ingredient of adaptedIngredients">
+        <p padding class="my-label color-mod" *ngIf="ingredient.modified === 'yes' ; else templateName">
+          <ion-icon name="close"></ion-icon>&emsp;
+          {{ingredient.name}}
+        </p>
+
+        <ng-template #templateName>
+          <p padding class="my-label color">
+            <ion-icon name="checkmark"></ion-icon>&emsp;
+            {{ingredient.name}}
+            
+          </p>
+        </ng-template>
+
+      </li>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list padding>
+    <ion-row>
+      <ion-title>&emsp;
+        <ion-icon name="bulb" end></ion-icon>&emsp;Suggested changes
+      </ion-title>
+     
+
+    </ion-row>
+
+    <ion-list padding text-wrap>
+
+      <li *ngFor="let ingredient of adaptedIngredients">
+ 
+          <ion-item class="fancy-list" *ngIf="ingredient.modified === 'yes' ; else templateName">
+
+  
+            <ion-select class="select" value="principal" placeholder={{ingredient.adapted}} okText="Okay" input [(ngModel)]="ingredient.adapted" cancelText="Dismiss">
+                <ion-option *ngFor="let op of ingredient.others" value="{{op}}">{{op}}</ion-option>
+            </ion-select>
+
+            <ion-label color="danger">{{ingredient.name}}&emsp;
+              <ion-icon name="arrow-round-forward"></ion-icon>
+              
+            </ion-label>
+
+
+      
+
+           </ion-item>
+          
+           <!-- <button end style="background: transparent; float: right;" icon-only  (click)="save()"> <ion-icon size="large" name="create"></ion-icon> </button> -->
+
+        
+        <ng-template #templateName>         
+            <ion-item class="fancy-list">
+              <ion-label >{{ingredient.name}}</ion-label>
+            </ion-item>
+        </ng-template>
+
+      </li>
+    </ion-list>
+
+  <ion-item text-center>
+    <ion-buttons> <button class="center" ion-button round large (click)="generateRecipe()"> Generate adapted recipe</button> </ion-buttons> 
+  </ion-item>
+
+  {{variable}}
+
+  </ion-list>
+
+
+
+
+ 
+
+  <!-- <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.image + ')'">
+  </div> 
+
+  <ion-list>
+    <ion-item class="fancy-list">
+      <ion-label><b>A?</b></ion-label>
+      <ion-select interface="popover" value="principal" okText="Okay" cancelText="Dismiss">
+          <ion-option value="principal">AA</ion-option>
+          <ion-option value="principal_primero">AB</ion-option>
+      </ion-select>
+        </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Notifications</ion-label>
+      <ion-select value="notifications" interface="action-sheet">
+        <ion-option value="enable">Enable</ion-option>
+        <ion-option value="mute">Mute</ion-option>
+        <ion-option value="mute_week">Mute for a week</ion-option>
+        <ion-option value="mute_year">Mute for a year</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item class="fancy-list">
+      <ion-label><b>A?</b></ion-label>
+      <ion-select value="principal" okText="Okay" cancelText="Dismiss">
+          <ion-option value="principal">AA</ion-option>
+          <ion-option value="principal_primero">AB</ion-option>
+      </ion-select>
+        </ion-item>
+  </ion-list>
+
+
+  <ion-list>
+    <ion-item >
+      <ion-label><b>A?</b></ion-label>
+      <ion-select value="principal" okText="Okay" cancelText="Dismiss">
+          <ion-option value="principal">AA</ion-option>
+          <ion-option value="principal_primero">AB</ion-option>
+      </ion-select>
+        </ion-item>
+  </ion-list>
+
+
+  </ion-item>  -->
+</ion-content>

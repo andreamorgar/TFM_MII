@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title >Recipe collections</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+
+    <ion-card class="myCard" (click)="openItem(item)" *ngFor="let item of currentItems">
+      <img class="altura"  [src]="item.image">
+      <div class="myOverlay">
+        <br>
+        <div class="card-title"><b>{{item.name}}</b></div>
+        </div>
+      <!-- <ion-card-content >
+  
+        
+       
+         
+       
+  
+
+
+      </ion-card-content>  -->
+    </ion-card>
+
+
+
+
+
+    <!-- <ion-card (click)="openItem(item)" *ngFor="let item of currentItems">
+
+      <img [src]="item.image">
+  
+      <ion-card-content>
+        <ion-title class="large-title">{{item.name}}</ion-title>
+        
+      </ion-card-content>
+  
+
+    </ion-card> -->
+
+  </ion-list>
+</ion-content>

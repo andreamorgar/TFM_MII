@@ -1,0 +1,1 @@
+Place ground beef in a large saucepan with water and mash the beef with a potato masher to break apart. Stir in tomato sauce, ketchup, chili powder, salt, black pepper, sugar, onion powder, and Worcestershire sauce. Bring to a boil and cook over medium heat until the chili has thickened slightly and the beef is fully cooked, about 20 minutes.

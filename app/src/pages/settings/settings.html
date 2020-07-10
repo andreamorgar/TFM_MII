@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Adapted recipes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of currentItems">
+      <button ion-item (click)="openItem(item)">
+        <ion-avatar item-start>
+          <img [src]="item.image" />
+        </ion-avatar>
+        <h2 class="capitalize">{{item.name}}</h2>
+      </button>
+      <ion-item-options side="right" (ionSwipe)="removeItem(item)">
+        <button ion-button expandable color="danger" (click)="removeItem(item)">
+          DELETE
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list> 
+
+</ion-content>

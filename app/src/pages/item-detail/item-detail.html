@@ -1,0 +1,112 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title >{{item.name}}</ion-title>
+        <!-- <ion-buttons end>
+        <button ion-button color="primary" size="large" icon-only (click)="adaptRecipe()">ADAPT
+        </button>
+      </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+
+  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.image + ')'">
+  </div> 
+
+<!-- 
+  <ion-item>
+    <ion-row>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-start>
+            <ion-icon name='time'></ion-icon>
+            {{item.minutes}} min
+          </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-start>
+          <ion-icon name='analytics'></ion-icon>
+          100 KCAL
+        </button>     
+      </ion-col>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-start>
+            <ion-icon name='information-circle'></ion-icon>
+            FOOD.COM
+          </button>
+      </ion-col>
+    </ion-row>
+  </ion-item> -->
+
+
+  <ion-row>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+          <ion-icon name='time'></ion-icon>
+          {{item.minutes}} min
+        </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+        <ion-icon name='analytics'></ion-icon>
+        {{calories}} KCAL
+      </button>     
+    </ion-col>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+          <ion-icon name='information-circle'></ion-icon>
+          FOOD.COM
+        </button>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-list no-lines padding>
+
+    <ion-row>
+      <ion-buttons left>
+        <button ion-button color="primary" size="large" (click)="adaptRecipe()">ADAPT</button>&emsp;
+      </ion-buttons>
+      <ion-title>&emsp;
+        <ion-icon name="nutrition" end ></ion-icon>&emsp;Ingredients
+      </ion-title>
+    </ion-row>
+
+
+    <!-- <ion-toolbar class="col">
+      <ion-title>&emsp;<ion-icon name="nutrition" end ></ion-icon>&emsp;Ingredients</ion-title>
+      <ion-buttons end>
+        <button ion-button color="primary" size="large" icon-only (click)="adaptRecipe()">ADAPT
+        </button>
+      </ion-buttons>
+    </ion-toolbar> -->
+
+    <ion-item text-wrap>
+        <p padding class="my-label color"  *ngFor="let ingredient of item.ingredients">{{ingredient}}</p>
+      </ion-item>
+  </ion-list>
+
+
+  <!-- <h3 padding >Preparation steps</h3> -->
+  <ion-list no-lines padding>
+    <ion-title>&emsp;<ion-icon name="construct" end ></ion-icon>&emsp;Preparation steps</ion-title>
+    <ion-item text-wrap>
+      <p padding class="my-label preparation-color"  *ngFor="let st of item.steps">{{st}}</p>
+
+    </ion-item>
+  </ion-list> 
+
+  
+  <ion-list padding>
+    <ion-title>&emsp;<ion-icon name="chatbubbles" end ></ion-icon>&emsp;Comments from the cooker</ion-title>
+    
+    <ion-item no-lines text-wrap>
+        <p padding class="my-label color comment-color oblique">"{{item.description}}"</p>
+    </ion-item>
+  </ion-list>
+  
+
+</ion-content>
