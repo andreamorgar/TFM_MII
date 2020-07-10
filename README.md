@@ -15,9 +15,9 @@ La integración de datos heterogéneos es una tarea indispensable en múltiples 
 
 - [data](https://github.com/andreamorgar/TFM_MII/tree/master/data): directorio que contiene archivos con datos externos, pero utilizados dentro del proyecto.
 - [docs](https://github.com/andreamorgar/TFM_MII/tree/master/docs): directorio que contiene los ficheros latex para el desarrollo de la memoria.
-- [excels](https://github.com/andreamorgar/TFM_MII/tree/master/excels): directorio con ficheros excel generados con el resultado de los mapeos en la experimentación, para exportar la información de una manera que se visualice más rápidamente, o para realizar operaciones posteriormente (cómodo para trabajar con pandas).
+- [excels](https://github.com/andreamorgar/TFM_MII/tree/master/excels): directorio en el que se almacenan los resultados del módulo de mapeo.
     - [Mapeos (experimentación)](https://github.com/andreamorgar/TFM_MII/tree/master/excels/idiet-mapping): mapeos resultantes en función de las medidas utilizadas.
-    - [Resultados en la precisión de los mapeos](https://github.com/andreamorgar/TFM_MII/tree/master/excels/idiet-mapping): precisión en los mapeos en función de las medidas utilizadas.
+    - [Resultados en la precisión de los mapeos](https://github.com/andreamorgar/TFM_MII/tree/master/excels/accuracy): precisión en los mapeos en función de las medidas utilizadas.
 - [files](https://github.com/andreamorgar/TFM_MII/tree/master/files): directorio con los códigos implementados en el TFM.
     
     Código relevante:
@@ -41,6 +41,7 @@ La integración de datos heterogéneos es una tarea indispensable en múltiples 
 - [memoria](https://github.com/andreamorgar/TFM_MII/blob/master/memoria.pdf): memoria del trabajo en formato PDF.
 - [models](https://github.com/andreamorgar/TFM_MII/tree/master/models): modelos guardados, generados y entrenados en el proyecto.
 - [recipes](https://github.com/andreamorgar/TFM_MII/tree/master/recipes): directorio con los textos de las recetas, clasificados en subdirectorios según de donde provenga la receta. Estos ficheros son los que se utilizan como corpus de entreamiento del modelo de Word Embedding.
+- [Vídeo con la demostración del funcionamiento de la aplicación](https://github.com/andreamorgar/TFM_MII/tree/master/videos)
 
 
 ## Manual de uso de la aplicación
