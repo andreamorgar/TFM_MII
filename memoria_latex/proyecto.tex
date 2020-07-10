@@ -1,0 +1,299 @@
+\documentclass[a4paper,11pt]{book}
+%\documentclass[a4paper,twoside,11pt,titlepage]{book}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multirow}
+% \usepackage[style=list, number=none]{glossary} %
+%\usepackage{titlesec}
+%\usepackage{pailatino}
+% \DeclareUnicodeCharacter{22C6}{*************************************}
+
+\decimalpoint
+\usepackage{dcolumn}
+\newcolumntype{.}{D{.}{\esperiod}{-1}}
+\makeatletter
+\addto\shorthandsspanish{\let\esperiod\es@period@code}
+\makeatother
+
+
+%\usepackage[chapter]{algorithm}
+\RequirePackage{verbatim}
+%\RequirePackage[Glenn]{fncychap}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{afterpage}
+
+\usepackage{longtable}
+
+\usepackage{colortbl, longtable}
+\usepackage[table,xcdraw]{xcolor}
+
+
+\usepackage[pdfborder={000}]{hyperref} %referencia
+
+% ********************************************************************
+% Re-usable information
+% ********************************************************************
+\newcommand{\myTitle}{Título del proyecto\xspace}
+\newcommand{\myDegree}{Máster en Ingeniería Informática\xspace}
+\newcommand{\myName}{Andrea Morales Garzón (alumno)\xspace}
+\newcommand{\myProf}{Nombre Apllido1 Apellido2 (tutor1)\xspace}
+\newcommand{\myOtherProf}{Nombre Apllido1 Apellido2 (tutor2)\xspace}
+%\newcommand{\mySupervisor}{Put name here\xspace}
+\newcommand{\myFaculty}{Escuela Técnica Superior de Ingenierías Informática y de
+Telecomunicación\xspace}
+\newcommand{\myFacultyShort}{E.T.S. de Ingenierías Informática y de
+Telecomunicación\xspace}
+\newcommand{\myDepartment}{Departamento de ...\xspace}
+\newcommand{\myUni}{\protect{Universidad de Granada}\xspace}
+\newcommand{\myLocation}{Granada\xspace}
+\newcommand{\myTime}{\today\xspace}
+\newcommand{\myVersion}{Version 0.1\xspace}
+
+
+\hypersetup{
+pdfauthor = {\myName (email (en) ugr (punto) es)},
+pdftitle = {\myTitle},
+pdfsubject = {},
+pdfkeywords = {palabra_clave1, palabra_clave2, palabra_clave3, ...},
+pdfcreator = {LaTeX con el paquete ....},
+pdfproducer = {pdflatex}
+}
+
+%\hyphenation{}
+\definecolor{UniBlue}{RGB}{2,59,183}
+\definecolor{myGreen}{RGB}{67,207,1}
+\definecolor{myRed}{RGB}{200,1,40}
+
+%\usepackage{doxygen/doxygen}
+%\usepackage{pdfpages}
+\usepackage{url}
+\usepackage{colortbl,longtable}
+\usepackage[stable]{footmisc}
+\usepackage{index}
+
+
+\usepackage{biblatex} %Imports biblatex package
+\addbibresource{sample.bib} %Import the bibliography file
+\usepackage{pifont}
+\usepackage{amssymb}
+\newcommand{\cmark}{\ding{52}}%
+\newcommand{\xmark}{\ding{56}}%
+
+
+
+
+\makeindex
+%\usepackage[style=long, cols=2,border=plain,toc=true,number=none]{glossary}
+%\makeglossary
+
+% Definición de comandos que me son tiles:
+%\renewcommand{\indexname}{Índice alfabético}
+%\renewcommand{\glossaryname}{Glosario}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{\leftmark}
+\fancyhead[RE]{\rightmark}
+\fancyhead[RO,LE]{\textbf{\thepage}}
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textbf{\thesection. #1}}}
+
+\setlength{\headheight}{1.5\headheight}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+%Definimos los tipos teorema, ejemplo y definición podremos usar estos tipos
+%simplemente poniendo \begin{teorema} \end{teorema} ...
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{ejemplo}{Ejemplo}[chapter]
+\newtheorem{definicion}{Definición}[chapter]
+
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+\definecolor{gray30}{gray}{.94}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{arsenic}{rgb}{0.23, 0.27, 0.29}
+\definecolor{blue(munsell)}{rgb}{0.0, 0.5, 0.69}
+\definecolor{bondiblue}{rgb}{0.0, 0.58, 0.71}
+\definecolor{bluegray}{rgb}{0.4, 0.6, 0.8}
+\definecolor{cadet}{rgb}{0.23, 0.41, 0.67}
+\definecolor{britishracinggreen}{rgb}{0.0, 0.26, 0.15}
+\definecolor{oldrose}{rgb}{0.75, 0.5, 0.51}
+\definecolor{oldmauve}{rgb}{0.4, 0.19, 0.28}
+\definecolor{pastelgray}{rgb}{0.81, 0.81, 0.77}
+\definecolor{gray15}{gray}{.30}
+\definecolor{gray(x11gray)}{rgb}{0.97, 0.97, 0.97}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+
+
+\usepackage{comment}
+
+\lstset{ frame=Ltb,
+     framerule=0.5pt,
+     aboveskip=0.5cm,
+     framextopmargin=3pt,
+     framexbottommargin=3pt,
+     framexleftmargin=0.1cm,
+     framesep=0pt,
+     rulesep=.4pt,
+     backgroundcolor=\color{gray97},
+     rulesepcolor=\color{black},
+     %
+     stringstyle=\ttfamily,
+     showstringspaces = false,
+     basicstyle=\scriptsize\ttfamily,
+     commentstyle=\color{gray45},
+     keywordstyle=\bfseries,
+     %
+     numbers=left,
+     numbersep=6pt,
+     numberstyle=\tiny,
+     numberfirstline = false,
+     breaklines=true,
+   }
+ 
+% minimizar fragmentado de listados
+\lstnewenvironment{listing}[1][]
+   {\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
+
+\lstdefinestyle{CodigoC}
+   {
+	basicstyle=\scriptsize,
+	frame=single,
+	language=C,
+	numbers=left
+   }
+\lstdefinestyle{CodigoC++}
+   {
+	basicstyle=\small,
+	frame=single,
+	backgroundcolor=\color{gray30},
+	language=C++,
+	numbers=left
+   }
+
+ 
+\lstdefinestyle{Consola}
+   {basicstyle=\scriptsize\bf\ttfamily,
+    backgroundcolor=\color{gray30},
+    frame=single,
+    numbers=none
+   }
+
+
+\newcommand{\bigrule}{\titlerule[0.5mm]}
+
+
+
+%Para conseguir que en las páginas en blanco no ponga cabecerass
+\makeatletter
+\def\clearpage{%
+  \ifvmode
+    \ifnum \@dbltopnum =\m@ne
+      \ifdim \pagetotal <\topskip
+        \hbox{}
+      \fi
+    \fi
+  \fi
+  \newpage
+  \thispagestyle{empty}
+  \write\m@ne{}
+  \vbox{}
+  \penalty -\@Mi
+}
+\makeatother
+
+\usepackage{float}
+% \usepackage{subfigure}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{eurosym} % para meter el símbolo del euro
+ 
+\usepackage{pgfgantt}
+\definecolor{barblue}{RGB}{153,204,254}
+\definecolor{groupblue}{RGB}{51,102,254}
+\definecolor{linkred}{RGB}{12,200,133}
+% \renewcommand\sfdefault{phv}
+% \renewcommand\mddefault{mc}
+% \renewcommand\bfdefault{bc}
+\setganttlinklabel{s-s}{}
+\setganttlinklabel{f-s}{}
+\setganttlinklabel{f-f}{}
+% \sffamily
+
+
+\begin{document}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{Índice de Tablas}
+%\clearpage
+\input{portada/portada}
+\input{prefacios/prefacio}
+\frontmatter
+\tableofcontents
+\listoffigures
+\listoftables
+%
+\mainmatter
+\setlength{\parskip}{5pt}
+
+
+
+\input{capitulos/01_Introduccion}
+
+
+\input{capitulos/02_EspecificacionRequisitos}
+
+\input{capitulos/03_Antecedentes}
+
+\input{capitulos/04_Arquitectura}
+
+\input{capitulos/05_WordEmbedding}
+
+\input{capitulos/06_Mapping}
+
+\input{capitulos/07_Aplicacion}
+
+\input{capitulos/08_Resultados}
+
+\input{capitulos/09_Conclusiones}
+
+\printbibliography %Prints bibliography
+%%\chapter{Conclusiones y Trabajos Futuros}
+%
+%
+
+\newpage
+%%\nocite{*}
+
+% Comentadas estas tres líneas
+%\addcontentsline{toc}{chapter}{Bibliografía}
+%\bibliographystyle{abbrvnat}
+%\bibliography{library}
+
+
+\appendix
+\input{apendices/01_PantallasApp}
+%\input{apendices/manual_usuario/manual_usuario}
+%%\input{apendices/paper/paper}
+%\input{glosario/entradas_glosario}
+% \addcontentsline{toc}{chapter}{Glosario}
+% \printglossary
+\chapter*{}
+\thispagestyle{empty}
+
+
+
+
+%Imports the bibliography file "references.bib"
+
+
+\end{document}

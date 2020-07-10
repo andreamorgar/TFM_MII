@@ -1,0 +1,318 @@
+\chapter{Planificación y metodología}
+\label{ch:Capitulo 2}
+
+\begin{quote}
+  Este capítulo presenta los requisitos que debe satisfacer el sistema que se desarrolla en este trabajo, así como su posterior desglose en las actividades a realizar. Por último, se presenta la planificación realizada en base a dichas actividades.
+\end{quote}
+
+
+\section{Especificación de requisitos}
+
+A continuación se enumeran las necesidades que debe satisfacer el sistema desarrollado de acuerdo a los objetivos detallados en la Sección \ref{sec:objetivos}.\\
+
+\textbf{Calidad}
+\begin{enumerate}
+    \item El modelo de lenguaje debe contener un vocabulario lo suficientemente extenso como para poder trabajar con el lenguaje en el área de estudio escogida.% (prioridad alta).  
+    
+    \item El modelo de lenguaje tiene que permitir identificar elementos equivalentes entre las fuentes de datos que intervienen en el problema.
+    
+    \item Los mapeos obtenidos deben ser lo suficientemente fiables como para detectar los ingredientes en recetas y poder acceder a su información nutricional.
+    
+    \item Las recetas adaptadas deben satisfacer las restricciones que se especifiquen. 
+    
+    \item La adaptación de recetas debe poder ser interpretable. Para ello, se debe mostrar qué ingredientes no cumplen las restricciones y por tanto deben ser modificados.
+
+    \item Las imágenes de recetas utilizadas en el sistema deben ser lo más representativas posibles.% (prioridad media). % Calidad 
+    
+    \item La aplicación final debe poseer interfaces gráficas bien formadas que permitan una navegación intuitiva por parte del usuario.% (prioridad medio-alta). % Calidad 
+\end{enumerate}
+
+%------------------------------------------------------------------------------------------
+\textbf{Escalabilidad}
+
+\begin{enumerate}
+    \item El sistema debe ser capaz de controlar grandes volúmenes de datos.% (prioridad alta). % Escalabilidad
+
+    \item El modelo de lenguaje debe poder utilizarse de manera independiente al resto de elementos del sistema. Debe permitir el uso del conocimiento aprendido a otros problemas de Food Computing, así como su reutilización en otros modelos predictivos.
+    
+    \item La implementación del modelo de lenguaje tiene que posibilitar la opción de realizar, en caso que se requiera, nuevas tareas de entrenamiento con otros corpus distintos del utilizado en este trabajo.% (prioridad media). 
+    
+    \item El mapeo entre fuentes de datos debe ser independiente de la cantidad de elementos contenidos en cada una de ellas.% (prioridad alta).
+    
+    \item La adaptación de recetas según restricciones debe ser extensible a nuevas recetas futuras que se añadan al sistema.% (prioridad media).
+    
+    \item La implementación de la adaptación de recetas debe permitir la incorporación de nuevas restricciones en el futuro.% (prioridad alta).    
+    
+\end{enumerate}
+
+%------------------------------------------------------------------------------------------
+\textbf{Facilidad de mantenimiento}
+
+\begin{enumerate}
+    \item El sistema se organizará en distintos módulos, donde cada uno implementará una funcionalidad diferente con el objetivo de que el proceso de modificaciones, pruebas y validación sea más sencillo.% (prioridad baja-medio). % Facilidad de mantenimiento
+    
+\end{enumerate}
+
+%------------------------------------------------------------------------------------------
+\textbf{Facilidad de uso}
+
+\begin{enumerate}
+    \item Los usuarios no tienen por qué tener experiencia o conocimientos específicos sobre informática o sobre el proyecto: cualquier usuario debe poder hacer uso de la aplicación final sin dificultad.% (prioridad alta). 
+    
+    \item La aplicación final debe contar con un pequeño tutorial de la aplicación, para orientar al usuario acerca de cómo funciona el sistema.% (prioridad alta). 
+    
+    \item Se debe proporcionar un manual de usuario de la aplicación final que permita entender el flujo de datos entre las distintas pantallas implementadas.% (prioridad media). 
+    
+    \item La aplicación final debe proporcionar mensajes intuitivos para el usuario que le permitan utilizar la aplicación sin dificultad.% (prioridad alta) 
+
+    
+\end{enumerate}
+
+%------------------------------------------------------------------------------------------
+\textbf{Rendimiento}
+
+\begin{enumerate}
+    \item El flujo de datos entre los distintos módulos debe ser el mínimo necesario para optimizar el tiempo de ejecución del sistema.
+    
+    \item En la aplicación final no habrá excesiva redundancia en cuanto a la información con el objetivo de acelerar las consultas.
+    
+    \item En la aplicación final solo tendremos acceso a la información de las recetas en cuestión cuando sean seleccionadas.% (prioridad media)
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------------------
+\textbf{Robustez}
+
+\begin{enumerate}
+
+    \item El modelo de lenguaje debe proporcionar representaciones para cualquier descripción, controlando las palabras que se queden fuera del vocabulario del modelo.
+    
+    \item Los mapeos debe contemplar la posibilidad de tratar con descripciones con palabras no contempladas en la representación del modelo de lenguaje.
+    
+
+    
+\end{enumerate}
+
+%------------------------------------------------------------------------------------------
+
+
+\section{Actividades}\label{sec:tareas}
+
+Para poder abordar los requisitos detallados en la sección anterior, se ha elaborado la siguiente distribución del trabajo en tres actividades principales, cada una de ellas relativas a los tres grandes bloques que se abarcan en este proyecto. Para el desarrollo de los distintos bloques, se han detallado también las actividades específicas que se llevarán a cabo en cada uno de ellos.
+\begin{enumerate}
+
+    \item Diseño y desarrollo de un módulo de Representación del Lenguaje con técnicas predictivas para trabajar con problemas de Procesamiento de Lenguaje Natural en un dominio concreto. % Andrea: ¿Poner DEEP LEARNING o ALGORITMOS PREDICTIVOS?
+    
+        \begin{enumerate}
+            \item Recopilación masiva de datos y creación del conjunto de entrenamiento del modelo con la colección de datos recopilada. 
+            
+            \item Elaborar técnicas de preprocesamiento de textos para poder trabajar las descripciones textuales de los elementos que se pretenden fusionar.
+            
+            \item Diseño e implementación de un modelo de Word Embedding y ajuste de hiperparámetros. 
+            
+            \item Visualización del modelo entrenado con ejemplos concretos para verificar su funcionalidad.
+        \end{enumerate}
+        
+    \item Diseño y desarrollo de un módulo de mapeo de datos que permita fusionar información heterógenea a partir de las descripciones de los elementos a fusionar.
+    
+        \begin{enumerate}
+            \item Diseño de medidas de distancia entre descripciones textuales utilizando su representación textual (previamente preprocesada).
+
+            \item Diseño de medidas de distancia entre descripciones textuales utilizando su representación vectorial obtenida con el modelo de lenguaje.
+            
+            \item Diseño e implementación de un módulo de mapeo con las medidas de distancia diseñadas.
+            
+            \item Experimentación y análisis de la eficacia de las medidas de distancia con un problema de mapeo entre dos bases de datos.
+            
+        \end{enumerate}
+            
+
+    \item Experimentación del sistema mediante el desarrollo de una aplicación de adaptación de dietas de usuarios en función de sus restricciones alimenticias.
+    
+    \begin{enumerate}
+        \item Implementar un sistema para aplicar la herramienta de fusión de datos desarrollada.
+        
+        \item Desarrollar un módulo de consultas adaptadas que permita obtener recetas adecuadas a restricciones.
+        
+        \item Detectar ingredientes de recetas no sujetos a las restricciones indicadas y subtituirlos por alimentos que sí las satisfagan. 
+
+
+        \item Implementación de una aplicación móvil para realizar consultas adaptadas sobre las recetas. 
+
+
+    \end{enumerate}
+    
+\end{enumerate}
+
+\section{Planificación}
+
+% Planificación en base a las tareas en las que se divide el trabajo. 
+La planificación se realizado en función de las actividades definidas en la Sección \ref{sec:tareas}. En la Tabla \ref{tab:actividades} se puede ver la duración asociada a cada una de estas actividades. Tal y como se aprecia en dicha tabla, la planificación se ha estimado de forma semanal. Nótese que se ha establecido un identificador para cada una de las actividades definidas en este proyecto. De esta forma, podemos establecer las dependencias entre las distintas actividades (ver columna \textit{Predecesores} en Tabla \ref{tab:actividades}) para poder generar el diagrama de Gantt (ver Figura \ref{fig:gantt}).
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{cccc}
+\textbf{ID} & \textbf{Descripción} & \textbf{Duración (Sem.)} & \textbf{Predecesores} \\ \hline 
+
+A & Actividad 1a & 2 & - \\
+B & Actividad 1b & 3 & A \\
+C & Actividad 1c & 8 & B\\
+D & Actividad 1d & 1 & C \\ \hline
+
+E & Actividad 2a & 4 & B \\
+F & Actividad 2b & 4 & C \\
+G & Actividad 2c & 2 & E,F \\
+H & Actividad 2d & 7 & G \\ \hline
+
+I & Actividad 3a & 2 & G \\
+J & Actividad 3b & 2 & I \\
+K & Actividad 3c & 2 & J \\
+L & Actividad 3d & 18 & K \\ \hline
+
+M & Redacción de la memoria & 27 & - %D,E,G
+\end{tabular}
+\caption{Actividades llevadas a cabo en el proyecto \label{tab:actividades}}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+\begin{ganttchart}[expand chart=1.0\textwidth,
+    canvas/.append style={fill=none, draw=black!5, line width=.75pt},
+    hgrid style/.style={draw=black!5, line width=.1pt},
+    vgrid={*1{draw=black!5, line width=.75pt}},
+    today rule/.style={
+      draw=black!14,
+      dash pattern=on 3.5pt off 4.5pt,
+      line width=1.5pt
+    },
+    today label font=\small\bfseries,
+    title/.style={draw=none, fill=none},
+    title label font=\bfseries\footnotesize,
+    title label node/.append style={below=7pt},
+    include title in canvas=false,
+    bar label font=\mdseries\small\color{black!70},
+    bar label node/.append style={left=0.1cm},
+    bar/.append style={draw=none, fill=blue!300},
+    bar incomplete/.append style={fill=barblue},
+    bar progress label font=\mdseries\footnotesize\color{black!70},
+    group incomplete/.append style={fill=groupblue},
+    group left shift=0,
+    group right shift=0,
+    group height=.1,
+    group peaks tip position=0,
+    group label node/.append style={left=.1cm},
+    group progress label font=\bfseries\small,
+    link/.style={-latex, line width=1.5pt, linkred},
+    link label font=\scriptsize\bfseries,
+    link label node/.append style={below left=-2pt and 0pt},
+    y unit chart = 6mm]{1}{44}
+  \ganttset{bar height=0.35}
+%   \gantttitle[]{Diagrama de Gantt del trabajo}{44}\newline  
+    \gantttitle{Sep}{4}
+    \gantttitle{Oct}{4}
+    \gantttitle{Nov}{4}
+    \gantttitle{Dic}{4}
+    \gantttitle{Ene}{4}                      % title 3
+    \gantttitle{Feb}{4}
+    \gantttitle{Mar}{4}
+    \gantttitle{Abr}{4}
+    \gantttitle{May}{4}
+    \gantttitle{Jun}{4}
+    \gantttitle{Jul}{4}\\
+  \ganttbar[
+    % progress=75,
+    name=A
+  ]{\textbf{Actividad 1a} A}{1}{2} \\
+  \ganttbar[
+    % progress=67,
+    name=B
+  ]{\textbf{Actividad 1b} B}{3}{5} \\
+  \ganttbar[
+    % progress=50,
+    name=C
+  ]{\textbf{Actividad 1c} C}{7}{14} \\
+  \ganttbar[
+    % progress=0,
+    name=D
+  ]{\textbf{Actividad 1d} D}{17}{18} \\[grid]
+  
+  \ganttbar[name=E]{\textbf{Actividad 2a} E}{6}{9} \\
+  \ganttbar[name=F]{\textbf{Actividad 2b} F}{15}{18} \\
+  \ganttbar[name=G]{\textbf{Actividad 2c} G}{19}{20} \\
+  \ganttbar[name=H]{\textbf{Actividad 2d} H}{22}{28} \\ [grid]
+  
+
+  \ganttbar[name=I]{\textbf{Actividad 3a} I}{21}{22} \\
+  \ganttbar[name=J]{\textbf{Actividad 3b} J}{23}{24} \\
+  \ganttbar[name=K]{\textbf{Actividad 3c} K}{25}{26} \\
+   \ganttbar[name=L]{\textbf{Actividad 3d} L}{27}{38} \\
+   \ganttbar[name=M]{\textbf{Actividad 4a} M}{15}{43} 
+  \ganttlink[link type=f-s]{A}{B}
+  \ganttlink[link type=f-s]{B}{C}
+  \ganttlink[link type=f-s]{C}{D}
+  
+  \ganttlink[link type=f-s]{B}{E}
+  \ganttlink[link type=f-s]{C}{F}
+  \ganttlink{E}{G}
+  \ganttlink[link type=f-s]{F}{G}
+  \ganttlink[link type=f-s]{G}{H}
+  
+  \ganttlink[link type=f-s]{G}{I}
+  \ganttlink[link type=f-s]{I}{J}
+  
+  \ganttlink[link type=f-s]{J}{K}
+  \ganttlink[link type=f-s]{K}{L}
+
+\end{ganttchart}
+\caption{Diagrama de Gantt}
+\label{fig:gantt}
+\end{figure}
+
+\section{Estimación de costes}
+
+
+% Costes de ordenador
+Para poder estimar los costes de este proyecto debemos distinguir entre los costes de personal y de recursos computacionales utilizados.
+Para el cálculo de los costes derivados del personal que colabora en este proyecto, se ha llevado a cabo una estimación por descomposición en actividades medida en \textit{p.m.}{\footnote{p.m. (persona-mes): si un proyecto toma \textit{x} p.m. significa que si se pudieran contratar \textit{x} personas, el proyecto se terminaría en 1 mes o bien, significa que si sólo contratamos a una persona entonces el proyecto se terminaría en \textit{x} meses,}}. En la Tabla \ref{tab:estimacion} se muestra una estimación del esfuerzo que sería necesario para abordar las distintas actividades en las que se divide este proyecto.
+
+\setlength{\tabcolsep}{5pt} 
+\begin{table}[H]
+\centering
+\begin{tabular}{lccccc|c}
+\textbf{Actividad} & \textbf{Plan} & \textbf{Análisis} & \textbf{Diseño} & \textbf{Desarrollo} & \textbf{Test
+} & \textbf{Total} \\ \hline \hline
+
+\textbf{Actividad 1}  & \textbf{0.4} & \textbf{0.4} & \textbf{1.4} &\textbf{ 1.1} &\textbf{ 0.7 }&\textbf{ 4.0} \\ \hline
+Actividad 1a & 0.1 & 0.0 & 0.1 & 0.4 & 0.0 & 0.6 \\
+Actividad 1b & 0.1 & 0.1 & 0.5 & 0.1 & 0.2 & 1.0 \\
+Actividad 1c & 0.1 & 0.2 & 0.7 & 0.4 & 0.2 & 1.6 \\
+Actividad 1d & 0.1 & 0.1 & 0.1 & 0.2 & 0.3 & 0.8  \\ \hline \hline
+
+\textbf{Actividad 2 }& \textbf{0.4} & \textbf{1.2 }& \textbf{0.7} & \textbf{0.35} & \textbf{0.9} & \textbf{3.55}  \\ \hline
+Actividad 2a & 0.1 & 0.4 & 0.2 & 0.0 & 0.2 & 0.9 \\
+Actividad 2b & 0.1 & 0.5 & 0.2  & 0.0 & 0.2 & 1.0 \\
+Actividad 2c & 0.1 & 0.2 & 0.2 & 0.25 & 0.2 & 0.95 \\
+Actividad 2d & 0.1 & 0.1 & 0.1 & 0.1 & 0.3 & 0.7 \\ \hline \hline
+
+\textbf{Actividad 3 }& \textbf{0.3} & \textbf{0.35} & \textbf{1.0} & \textbf{0.95} & \textbf{0.75} & \textbf{3.35} \\ \hline
+Actividad 3a & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.5 \\
+Actividad 3b & 0.1 & 0.1 & 0.2 & 0.15 & 0.2 & 0.75 \\
+Actividad 3c & 0.0 & 0.05 & 0.1 & 0.1 & 0.15 & 0.4 \\
+Actividad 3d & 0.1 & 0.1 & 0.6 & 0.6 & 0.3 & 1.7 \\ \hline \hline
+
+\textbf{Total} & \textbf{1.1} & \textbf{1.95} & \textbf{ 3.1} &\textbf{ 2.4} & \textbf{2.35} & \textbf{10.9}
+\end{tabular}
+\caption{Estimación de costes en p.m. por descomposición de actividades\label{tab:estimacion}}
+\end{table}
+
+A estos costes de personal habría que añadirle los asociados a los recursos computacionales necesarios. En este punto hay que considerar la capacidad de procesamiento y de memoria del ordenador para poder entrenar y alojar un modelo predictivo además de una aplicación multiplataforma. En nuestro caso, hemos utilizado un ordenador portátil de gama alta, y el coste asociado a su uso se estima en 700\euro.
+
+
+\begin{itemize}
+    \item \textbf{Costes por recursos computacionales}: 700\euro
+    \item \textbf{Costes laborales}: 1600\euro/p.m.
+    \item \textbf{Estimación}: 700\euro + 1600\euro/p.m. * 10.9 p.m. = 18140\euro
+\end{itemize}
+
+Mediante la estimación por descomposición de actividades el coste del proyecto se estima en 18140\euro.

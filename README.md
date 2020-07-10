@@ -36,7 +36,9 @@ La integración de datos heterogéneos es una tarea indispensable en múltiples 
     - [Script utilizado para obtener los textos del dataset de archives.org](https://github.com/andreamorgar/TFM-MII/tree/master/files/crear-ficheros-texto-plano.py)
     - [Pruebas preliminares con n-gramas](https://github.com/andreamorgar/TFM-MII/tree/master/files/n-gramas.py)
     - [Código para visualizaciones de Word Embedding](https://github.com/andreamorgar/TFM-MII/tree/master/files/vocabulary_model_info.py)
-
+  
+- [memoria_latex](https://github.com/andreamorgar/TFM-MII/tree/master/models): ficheros latex para la memoria del trabajo.
+- [memoria](https://github.com/andreamorgar/TFM-MII/tree/master/memoria.pdf): memoria del trabajo en formato PDF.
 - [models](https://github.com/andreamorgar/TFM-MII/tree/master/models): modelos guardados, generados y entrenados en el proyecto.
 - [recipes](https://github.com/andreamorgar/TFM-MII/tree/master/recipes): directorio con los textos de las recetas, clasificados en subdirectorios según de donde provenga la receta. Estos ficheros son los que se utilizan como corpus de entreamiento del modelo de Word Embedding.
 
